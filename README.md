@@ -1,2 +1,73 @@
-# mini_fin_tech
-# Smart Spend & Auto-Save  ## Overview  Smart Spend & Auto-Save is a mobile-first fintech application that helps users:  * Track daily expenses * Analyze spending patterns * Set savings goals * Receive intelligent weekly auto-save recommendations  The system is designed with a focus on real-world reliability, including offline support, duplicate prevention, and meaningful financial insights.  ---  ## Features  * Expense tracking with categories and metadata * Savings goal management * Weekly auto-save recommendation engine * Dashboard with spending analytics * Insights and alerts * Offline-first support with sync * Duplicate submission prevention (idempotency)  ---  ## Tech Stack  ### Frontend  * Flutter * State Management (Bloc / Riverpod / Provider)  ### Backend  * Node.js (Express)  ### Database  * PostgreSQL / MongoDB  ---  ## Setup Instructions  ### 1. Clone the repository  ```bash git clone <your-repo-url> cd smart-spend-auto-save ```  ---  ### 2. Backend Setup  ```bash cd backend npm install ```  Create a `.env` file:  ```env PORT=3000 DB_URI=<your_database_connection> ```  Run backend:  ```bash npm start ```  ---  ### 3. Flutter App Setup  ```bash cd mobile_app flutter pub get ```  Run app:  ```bash flutter run ```  ---  ## Run Instructions  * Ensure backend is running on configured port * Update API base URL in Flutter app if needed * Launch app via emulator or physical device * Add income and savings goal * Start adding expenses * View dashboard and insights  ---  ## Architecture Overview  The app follows a clean modular architecture:  UI ↓ State Management (Bloc / Provider) ↓ Repository Layer ↓ Data Sources (Local DB + Remote API)  This ensures:  * scalability * maintainability * separation of concerns  ---  ## Recommendation Logic (Summary)  The weekly auto-save recommendation considers:  * Monthly income * Total spending so far * Spending trends * Category distribution * Distance from savings goal  Adjustments are made dynamically based on:  * overspending * unusual spikes * urgency of goal  ---  ## Assumptions  * Users manually enter expenses (no bank integration) * Categories are predefined * Income is fixed monthly * Network may be unreliable → offline-first handled * Recommendation logic is rule-based (not ML)  ---  ## Trade-offs  * Focused more on backend logic and reliability than UI polish * Implemented rule-based recommendation instead of ML * Limited number of insights due to time constraints * Basic charting instead of advanced analytics  ---  ## Video Walkthrough  [Add your video link here]  ---  ## API Collection  [Attach Postman collection or Swagger link here]  ---  ## Future Improvements  * Recurring expenses * Push notifications * Advanced analytics * ML-based recommendations * Multi-goal savings support
+# Smart Spend & Auto-Save
+
+## Overview
+Smart Spend & Auto-Save is a mobile-first fintech application that helps users:
+- Track daily expenses
+- Analyze spending patterns
+- Set savings goals
+- Receive intelligent weekly auto-save recommendations
+
+The system is designed with a focus on real-world reliability, including offline support, duplicate prevention, and meaningful financial insights.
+
+## Features
+- Expense tracking with categories and metadata
+- Savings goal management
+- Weekly auto-save recommendation engine
+- Dashboard with spending analytics
+- Insights and alerts
+- Offline-first support with sync
+- Duplicate submission prevention (idempotency)
+
+## Tech Stack
+### Frontend
+- Flutter
+
+### Backend
+- Node.js (Express)
+
+### Database
+- PostgreSQL / MongoDB
+
+## Setup Instructions
+
+### 1. Clone the repository
+git clone <your-repo-url>
+cd smart-spend-auto-save
+
+### 2. Backend Setup
+cd backend
+npm install
+
+Create a `.env` file:
+PORT=3000
+DB_URI=<your_database_connection>
+
+Run backend:
+npm start
+
+### 3. Flutter App Setup
+cd mobile_app
+flutter pub get
+
+Run app:
+flutter run
+
+## Run Instructions
+- Ensure backend is running
+- Update API base URL if needed
+- Launch app
+- Add income and goal
+- Add expenses
+- View dashboard
+
+## Assumptions
+- Manual expense entry
+- Fixed monthly income
+- Predefined categories
+- Offline support required
+- Rule-based recommendation logic
+
+## Trade-offs
+- Focus on backend over UI polish
+- Rule-based instead of ML
+- Limited insights due to time
