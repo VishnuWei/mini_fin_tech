@@ -1,0 +1,104 @@
+{
+  "info": {
+    "name": "Smart Spend Auto Save API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Upsert Profile",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}/profile",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}", "profile"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"monthlyIncome\": 60000,\n  \"currency\": \"INR\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Upsert Goal",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}/goals/current",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}", "goals", "current"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goalName\": \"Emergency Fund\",\n  \"targetAmount\": 25000,\n  \"currentSavedAmount\": 4000,\n  \"targetDate\": \"2026-08-30\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Expense",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Idempotency-Key", "value": "exp-001" }],
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}/expenses",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}", "expenses"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 320,\n  \"category\": \"food\",\n  \"merchant\": \"Swiggy\",\n  \"description\": \"Dinner order\",\n  \"date\": \"2026-04-02T19:30:00.000Z\",\n  \"paymentMode\": \"upi\",\n  \"notes\": \"Team dinner\",\n  \"clientReferenceId\": \"mobile-1748\"\n}"
+        }
+      }
+    },
+    {
+      "name": "List Expenses",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}/expenses",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}", "expenses"]
+        }
+      }
+    },
+    {
+      "name": "Dashboard",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}/dashboard",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}", "dashboard"]
+        }
+      }
+    },
+    {
+      "name": "Recommendation",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}/recommendation",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}", "recommendation"]
+        }
+      }
+    },
+    {
+      "name": "Insights",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}/insights",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}", "insights"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:4000/api/v1" },
+    { "key": "userId", "value": "demo-user" }
+  ]
+}

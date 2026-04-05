@@ -1,0 +1,22 @@
+{
+  "name": "smart-spend-auto-save-be",
+  "version": "1.0.0",
+  "description": "Backend service for the Smart Spend & Auto-Save fintech challenge.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "helmet": "^8.1.0",
+    "mongoose": "^9.3.3",
+    "morgan": "^1.10.0"
+  }
+}

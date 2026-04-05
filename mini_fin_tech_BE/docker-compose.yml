@@ -1,0 +1,27 @@
+services:
+  api:
+    build: .
+    container_name: smart-spend-api
+    ports:
+      - "4000:4000"
+    environment:
+      PORT: 4000
+      NODE_ENV: development
+      STORAGE_MODE: mongo
+      MONGODB_URI: mongodb://mongo:27017/smart-spend
+      DUPLICATE_EXPENSE_WINDOW_MINUTES: 5
+      DEFAULT_DISCRETIONARY_CATEGORIES: food,shopping,entertainment,travel
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7
+    container_name: smart-spend-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
