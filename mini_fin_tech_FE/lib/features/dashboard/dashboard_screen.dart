@@ -182,7 +182,7 @@ class DashboardScreen extends ConsumerWidget {
                       contentPadding: EdgeInsets.zero,
                       title: Text(expense.merchant),
                       subtitle: Text(
-                        '${expense.category} • ${Formatters.shortDate.format(expense.date)} • ${expense.paymentMode}',
+                        '${expense.category} ï¿½ ${Formatters.shortDate.format(expense.date)} ï¿½ ${expense.paymentMode}',
                       ),
                       trailing: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
